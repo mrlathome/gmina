@@ -1,4 +1,4 @@
-// package mina forked from github.com/sariina/mina
+// mina idea and source code forked from github.com/sariina/mina
 
 package main
 
@@ -15,16 +15,6 @@ import (
 	"os"
 	"path/filepath"
 )
-
-func writeBodyToWR(wr http.ResponseWriter, resp *http.Response) {
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Printf("\033[0;31mError: %s\033[0m", err)
-		return
-	}
-	resp.Body = ioutil.NopCloser(bytes.NewBuffer(body))
-	wr.Write(body)
-}
 
 func cacheWrite(path string, filename string, body []byte) {
 	err := os.MkdirAll(path, 0755)
